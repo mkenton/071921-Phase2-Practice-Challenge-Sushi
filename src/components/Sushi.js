@@ -1,18 +1,13 @@
 import React from "react";
 
-function Sushi({sushi}) {
+function Sushi({sushi, handleEatSushi}) {
   const {name, img_url, price, eaten, id} = sushi
 
-function handleClick(){
- 
-  console.log(`change property of sushi # ${id} to eaten`)
- sushi.eaten = !sushi.eaten
- console.log(sushi.eaten)
-}
+
 
   return (
     <div className="sushi">
-      <div className="plate" onClick={handleClick}>
+      <div className="plate" onClick={() => handleEatSushi(sushi)}>
         {eaten ? null : (
           <img
             src={img_url}

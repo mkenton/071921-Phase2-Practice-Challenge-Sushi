@@ -5,14 +5,15 @@ import Sushi from "./Sushi"
 
 
 
-function SushiContainer({sushis}) {
+function SushiContainer({sushis, handleEatSushi}) {
 
-const [sushiNo, setSushiNo] = useState(4);
+const [sushiNo, setSushiNo] = useState(0);
 
   const allSushi = sushis.map((sushi) => (
     <Sushi
     key={sushi.id}
     sushi={sushi}
+    handleEatSushi={handleEatSushi}
     // name={sushi.name}
     // img_url={sushi.img_url}
     // price={sushi.price}
@@ -21,14 +22,14 @@ const [sushiNo, setSushiNo] = useState(4);
   ))
 
   function handleClickMoreSushi() {
-setSushiNo(sushiNo + 4)
+setSushiNo((sushiNo + 4) % sushis.length)
 console.log(sushiNo)
   }
   
   return (
     <div className="belt">
-      {allSushi.slice(sushiNo-4,sushiNo)}
-        < MoreButton  onClickMoreSushi={handleClickMoreSushi}/>  
+      {allSushi.slice(sushiNo,sushiNo+4)}
+        < MoreButton  onClickMoreSushi={handleClickMoreSushi} />  
 
     </div>
   );
