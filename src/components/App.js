@@ -1,4 +1,4 @@
-//Begin coding challenge
+//End of coding challenge
 
 import React, {useState, useEffect } from "react";
 import SushiContainer from "./SushiContainer";
